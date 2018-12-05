@@ -1,4 +1,4 @@
-package com.taonce.onitemclick.BaseAdapter
+package com.taonce.onitemclick.base
 
 import android.support.v4.util.SparseArrayCompat
 import android.support.v7.widget.RecyclerView
@@ -9,7 +9,7 @@ import org.jetbrains.anko.find
 /**
  * Author: taoyongxiang
  * Date: 2018/12/4
- * Project: BaseAdapter
+ * Project: base
  * Desc: RecyclerView.ViewHolder基类
  */
 

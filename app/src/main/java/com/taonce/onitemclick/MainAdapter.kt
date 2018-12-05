@@ -5,15 +5,15 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import com.taonce.onitemclick.BaseAdapter.BaseAdapter
-import com.taonce.onitemclick.BaseAdapter.BaseHolder
+import com.taonce.onitemclick.base.BaseAdapter
+import com.taonce.onitemclick.base.BaseHolder
 import kotlin.random.Random
 
 
 /**
  * Author: taoyongxiang
  * Date: 2018/12/4
- * Project: BaseAdapter
+ * Project: base
  * Desc: demo
  */
 

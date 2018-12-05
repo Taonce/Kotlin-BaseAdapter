@@ -1,4 +1,4 @@
-package com.taonce.onitemclick.BaseAdapter
+package com.taonce.onitemclick.base
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -10,7 +10,7 @@ import android.view.ViewGroup
 /**
  * Author: taoyongxiang
  * Date: 2018/12/4
- * Project: BaseAdapter
+ * Project: base
  * Desc: RecyclerAdapter基类
  */
 

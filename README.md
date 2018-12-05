@@ -18,7 +18,7 @@
 首先贴出对`ViewHolder`封装的整体代码
 
 ```
-package com.taonce.onitemclick.BaseAdapter
+package base
 
 import android.support.v4.util.SparseArrayCompat
 import android.support.v7.widget.RecyclerView
@@ -71,7 +71,7 @@ class BaseHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 其次我们来看看对`Adapter`封装的整体代码：
 
 ```
-package com.taonce.onitemclick.BaseAdapter
+package base
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -212,8 +212,8 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import com.taonce.onitemclick.BaseAdapter.BaseAdapter
-import com.taonce.onitemclick.BaseAdapter.BaseHolder
+import base.BaseAdapter
+import base.BaseHolder
 import kotlin.random.Random
 
 
@@ -258,7 +258,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
-import com.taonce.onitemclick.BaseAdapter.BaseAdapter
+import base.BaseAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
