@@ -25,18 +25,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
         // 点击事件
-        adapter.setOnItemClickListener(object : BaseAdapter.OnItemClickListener {
-            override fun onItemClick(position: Int) {
-                Log.d("taonce", "click item position is $position, value is ${mData[position]}")
-            }
-        })
+        adapter.setOnItemClickListener {
+            Log.d("taonce", "click item position is $it, value is ${mData[it]}")
+        }
         // 长按事件
-        adapter.setOnItemLongClickListener(object : BaseAdapter.OnItemLongClickListener {
-            override fun onItemLongClick(position: Int): Boolean {
-                Log.d("taonce", "long click position is $position, value is ${mData[position]}")
-                return true
-            }
-        })
+        adapter.setOnItemLongClickListener {
+            Log.d("taonce", "long click position is $it, value is ${mData[it]}")
+            return@setOnItemLongClickListener true
+        }
     }
 
     override fun onClick(p0: View?) {

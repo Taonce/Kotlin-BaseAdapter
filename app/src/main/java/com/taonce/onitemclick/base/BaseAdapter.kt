@@ -17,14 +17,15 @@ import android.view.ViewGroup
 abstract class BaseAdapter<T>(private val ctx: Context, private val layoutRes: Int, val mData: MutableList<T>)
     : RecyclerView.Adapter<BaseHolder>() {
 
-    private lateinit var mListener: OnItemClickListener
-    private lateinit var mLongListener: OnItemLongClickListener
+    // item的单击和长按事件都用Lambda写法代替
+    private lateinit var mListener: (position: Int) -> Unit
+    private lateinit var mLongListener: (position: Int) -> Boolean
 
-    fun setOnItemClickListener(mListener: OnItemClickListener) {
+    fun setOnItemClickListener(mListener: (position: Int) -> Unit) {
         this.mListener = mListener
     }
 
-    fun setOnItemLongClickListener(mLongListener: OnItemLongClickListener) {
+    fun setOnItemLongClickListener(mLongListener: (position: Int) -> Boolean) {
         this.mLongListener = mLongListener
     }
 
@@ -34,9 +35,9 @@ abstract class BaseAdapter<T>(private val ctx: Context, private val layoutRes: I
     override fun onBindViewHolder(holder: BaseHolder, position: Int) {
         convert(holder, position)
         holder.itemView.setOnClickListener {
-            mListener.onItemClick(position)
+            mListener.invoke(position)
         }
-        holder.itemView.setOnLongClickListener { mLongListener.onItemLongClick(position) }
+        holder.itemView.setOnLongClickListener { mLongListener.invoke(position) }
     }
 
     /**
@@ -95,22 +96,8 @@ abstract class BaseAdapter<T>(private val ctx: Context, private val layoutRes: I
     /**
      * 删除所有数据
      */
-    fun deleteAllData(){
+    fun deleteAllData() {
         mData.removeAll(mData)
         notifyDataSetChanged()
-    }
-
-    /**
-     * item的点击事件
-     */
-    interface OnItemClickListener {
-        fun onItemClick(position: Int)
-    }
-
-    /**
-     * item的长按事件
-     */
-    interface OnItemLongClickListener {
-        fun onItemLongClick(position: Int): Boolean
     }
 }
